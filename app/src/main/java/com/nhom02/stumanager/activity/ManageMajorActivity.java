@@ -5,6 +5,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,10 +21,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ManageMajorActivity extends AppCompatActivity {
+    final String DATABASE_NAME = "stu_manager.sqlite";
+    SQLiteDatabase database;
     private RecyclerView rcvMajor;
     private MajorAdapter majorAdapter;
     private TextView tvNoResults;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,12 +78,11 @@ public class ManageMajorActivity extends AppCompatActivity {
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) menuItem.getActionView();
-        searchView.setQueryHint("Nhập mã/tên chuyên ngành cần tìm");
+        searchView.setQueryHint("Nhập mã/tên chuyên ngành...");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //Nhập việc sau khi nhấn nút search vào đây
                 return false;
             }
 
@@ -94,6 +95,7 @@ public class ManageMajorActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
+
     private void filterMajorList(String searchText) {
         List<Major> filteredList = new ArrayList<>();
         for (Major major : getListMajor()) {
