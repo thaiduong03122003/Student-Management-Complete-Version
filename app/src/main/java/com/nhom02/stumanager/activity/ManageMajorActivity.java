@@ -5,27 +5,34 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.ColorDrawable;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nhom02.stumanager.R;
 import com.nhom02.stumanager.adapter.MajorAdapter;
+import com.nhom02.stumanager.helper.DateTimeHelper;
+import com.nhom02.stumanager.model.EducationProgram;
 import com.nhom02.stumanager.model.Major;
+import com.nhom02.stumanager.sqlite.MajorDao;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ManageMajorActivity extends AppCompatActivity {
-    final String DATABASE_NAME = "stu_manager.sqlite";
-    SQLiteDatabase database;
+public class ManageMajorActivity extends AppCompatActivity implements View.OnClickListener {
+
     private RecyclerView rcvMajor;
     private MajorAdapter majorAdapter;
     private TextView tvNoResults;
+
+    List<Major> majorList;
+    List<EducationProgram> educationProgramList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,34 +48,20 @@ public class ManageMajorActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         rcvMajor.setLayoutManager(linearLayoutManager);
 
-        majorAdapter.setData(getListMajor());
-        rcvMajor.setAdapter(majorAdapter);
+        MajorDao dao = new MajorDao(this);
+        try {
+            majorList = dao.getALL();
+            majorAdapter.setData(majorList);
+            rcvMajor.setAdapter(majorAdapter);
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+            Toast.makeText(this, "Error: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
 
-    }
+        findViewById(R.id.fabAdd).setOnClickListener(this);
 
-    //Sau này sẽ thay thế bằng dữ liệu lấy từ SQLite
-    private List<Major> getListMajor(){
-        List<Major> list = new ArrayList<>();
-        list.add(new Major("SPA1", "Sư phạm Anh", "http://youtube.com"));
-        list.add(new Major("SPT1", "Sư phạm Trung", "http://youtube.com"));
-        list.add(new Major("VNH1", "Việt Nam học", "http://google.com"));
-        list.add(new Major("CNTT1", "Công nghệ thông tin", "http://youtube.com"));
 
-        list.add(new Major("SPA1", "Sư phạm Anh", "http://youtube.com"));
-        list.add(new Major("SPT1", "Sư phạm Trung", "http://youtube.com"));
-        list.add(new Major("VNH1", "Việt Nam học", "http://youtube.com"));
-        list.add(new Major("CNTT1", "Công nghệ thông tin", "http://youtube.com"));
-
-        list.add(new Major("SPA1", "Sư phạm Anh", "http://youtube.com"));
-        list.add(new Major("SPT1", "Sư phạm Trung", "http://youtube.com"));
-        list.add(new Major("VNH1", "Việt Nam học", "http://youtube.com"));
-        list.add(new Major("CNTT1", "Công nghệ thông tin", "http://youtube.com"));
-
-        list.add(new Major("SPA1", "Sư phạm Anh", "http://youtube.com"));
-        list.add(new Major("SPT1", "Sư phạm Trung", "http://youtube.com"));
-        list.add(new Major("VNH1", "Việt Nam học", "http://youtube.com"));
-        list.add(new Major("CNTT1", "Công nghệ thông tin", "http://youtube.com"));
-        return list;
     }
 
     @Override
@@ -98,7 +91,7 @@ public class ManageMajorActivity extends AppCompatActivity {
 
     private void filterMajorList(String searchText) {
         List<Major> filteredList = new ArrayList<>();
-        for (Major major : getListMajor()) {
+        for (Major major : majorList) {
             if (major.getMajorId().toLowerCase().contains(searchText.toLowerCase()) ||
                     major.getMajorName().toLowerCase().contains(searchText.toLowerCase())) {
                 filteredList.add(major);
@@ -114,5 +107,40 @@ public class ManageMajorActivity extends AppCompatActivity {
         }
 
         majorAdapter.setData(filteredList);
+    }
+
+    @Override
+    public void onClick(View v) {
+        MajorDao dao = new MajorDao(this);
+        if (v.getId() == R.id.fabAdd) {
+            Intent intentAddMajor = new Intent(this, AddMajorActivity.class);
+            startActivity(intentAddMajor);
+        }
+    }
+
+    // Tự động làm mới khi thực hiện thao tác CRUD (chuyển đổi giữa các activity)
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MajorDao dao = new MajorDao(this);
+        List<Major> updatedList = null;
+        try {
+            updatedList = dao.getALL();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        majorList.clear();
+        updatedList.forEach(item->majorList.add(item));
+        majorAdapter.notifyDataSetChanged();
+    }
+
+    // Tránh rò rỉ bộ nhớ
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (majorAdapter != null) {
+            majorAdapter.release();
+        }
     }
 }

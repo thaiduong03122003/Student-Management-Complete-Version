@@ -1,17 +1,19 @@
 package com.nhom02.stumanager.model;
 
-public class Major {
-    private String majorId;
-    private  String majorName;
-    private String majorLink;
+import java.io.Serializable;
+
+public class Major implements Serializable {
+    private String majorId, majorName, majorPhone, majorLink, eduProgId;
 
     public Major() {
     }
 
-    public Major(String majorId, String majorName, String majorLink) {
+    public Major(String majorId, String majorName, String majorPhone, String majorLink, String eduProgId) {
         this.majorId = majorId;
         this.majorName = majorName;
+        this.majorPhone = majorPhone;
         this.majorLink = majorLink;
+        this.eduProgId = eduProgId;
     }
 
     public String getMajorId() {
@@ -30,11 +32,27 @@ public class Major {
         this.majorName = majorName;
     }
 
+    public String getMajorPhone() {
+        return majorPhone;
+    }
+
+    public void setMajorPhone(String majorPhone) {
+        this.majorPhone = majorPhone;
+    }
+
     public String getMajorLink() {
         return majorLink;
     }
 
     public void setMajorLink(String majorLink) {
         this.majorLink = majorLink;
+    }
+
+    public String getEduProgId() {
+        return eduProgId;
+    }
+
+    public void setEduProgId(String eduProgId) {
+        this.eduProgId = eduProgId;
     }
 }

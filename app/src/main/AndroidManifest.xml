@@ -13,6 +13,14 @@
         android:theme="@style/Theme.StuManager"
         tools:targetApi="31">
         <activity
+            android:name=".activity.DetailMajorActivity"
+            android:theme="@style/Theme.Design.NoActionBar"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AddMajorActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.Design.NoActionBar">
@@ -28,9 +36,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Design.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.Design.NoActionBar" />
     </application>
 
 </manifest>
