@@ -5,14 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.AddCourseActivity"
-    android:background="#CCCCCC">
+    tools:context=".activity.AddOrEditCourseActivity"
+    android:background="#ebf4ab">
 
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="THÊM KHÓA HỌC"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:background="#74eced"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:src="@drawable/img_course"
+        android:background="#F2BE3E"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="35dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:paddingTop="10dp"
@@ -24,15 +41,20 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="Mã khóa học" />
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Mã khóa học"
+            android:textColor="#4f5252"/>
 
         <EditText
             android:id="@+id/etCourseId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
             android:ems="10"
+            android:textColor="#414545"
             android:hint="Nhập tối đa 20 ký tự"
             android:inputType="text" />
 
@@ -40,15 +62,20 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="#4f5252"
             android:text="Tên khóa" />
 
         <EditText
             android:id="@+id/etCourseName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
             android:ems="10"
+            android:textColor="#414545"
             android:hint="Nhập tên khóa học"
             android:inputType="text" />
 
@@ -56,15 +83,20 @@
             android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="#4f5252"
             android:text="Niên khóa" />
 
         <EditText
             android:id="@+id/etSchYear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
             android:ems="10"
+            android:textColor="#414545"
             android:hint="Nhập niên khóa"
             android:inputType="text" />
 
@@ -76,12 +108,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Chọn tên ngành: "/>
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="#4f5252"
+                android:text="Chọn mã chuyên ngành: "/>
 
             <Spinner
                 android:id="@+id/spMajor"
-                android:layout_width="190dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
 
@@ -90,8 +124,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btnSave"
@@ -99,12 +132,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Lưu"
+            android:layout_margin="10dp"
             android:background="@drawable/button_background_lightmode"/>
 
         <Button
             android:id="@+id/btnClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:text="Đóng"
             android:background="@drawable/button_white_lightmode"/>

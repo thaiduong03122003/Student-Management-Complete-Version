@@ -1,6 +1,8 @@
 package com.nhom02.stumanager.model;
 
-public class Course {
+import java.io.Serializable;
+
+public class Course implements Serializable {
     private String courseId, courseName, schYear, majorId;
 
     public Course(){

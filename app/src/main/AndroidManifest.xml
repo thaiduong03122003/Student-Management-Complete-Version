@@ -13,8 +13,12 @@
         android:theme="@style/Theme.StuManager"
         tools:targetApi="31">
         <activity
-            android:name=".activity.AddCourseActivity"
+            android:name=".activity.DetailCourseActivity"
             android:exported="false" />
+        <activity
+            android:name=".activity.AddOrEditCourseActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.ManageCourseActivity"
             android:exported="false" />

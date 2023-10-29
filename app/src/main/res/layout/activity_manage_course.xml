@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.ManageCourseActivity"
-    android:background="#d7d1d1">
+    android:background="#c9f3f3">
     
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvMajorCate"
@@ -17,8 +17,12 @@
         android:id="@+id/fabAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="30dp"
-        android:src="@drawable/baseline_add_24"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#4ef54a"
+        android:src="@drawable/baseline_add_24" />
 </RelativeLayout>

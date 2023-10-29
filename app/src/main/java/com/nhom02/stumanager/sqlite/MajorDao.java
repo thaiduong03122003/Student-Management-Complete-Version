@@ -77,12 +77,6 @@ public class MajorDao {
         return list.get(0);
     }
 
-    public List<Major> getAllByEduProgId(String eduProgId) throws ParseException {
-        String sql = "SELECT * FROM tb_chuyennganh WHERE ma_daotao = ?";
-
-        return get(sql, "" + eduProgId);
-    }
-
     @SuppressLint("Range")
     public List<String> getAllMajorName() {
         List<String> majorNames = new ArrayList<>();
@@ -97,5 +91,21 @@ public class MajorDao {
 
         cursor.close();
         return majorNames;
+    }
+
+    @SuppressLint("Range")
+    public List<String> getAllMajorId() {
+        List<String> majorId = new ArrayList<>();
+        String sql = "SELECT ma_nganh " +
+                "FROM tb_chuyennganh";
+
+        Cursor cursor = db.rawQuery(sql, null);
+
+        while (cursor.moveToNext()) {
+            majorId.add(cursor.getString(cursor.getColumnIndex("ma_nganh")));
+        }
+
+        cursor.close();
+        return majorId;
     }
 }

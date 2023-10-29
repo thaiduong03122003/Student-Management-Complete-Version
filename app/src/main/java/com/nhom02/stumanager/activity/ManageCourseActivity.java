@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.nhom02.stumanager.R;
+import com.nhom02.stumanager.adapter.CourseAdapter;
 import com.nhom02.stumanager.adapter.CourseCateAdapter;
 import com.nhom02.stumanager.category.CourseCategory;
 import com.nhom02.stumanager.model.Course;
@@ -19,7 +19,6 @@ import com.nhom02.stumanager.sqlite.MajorDao;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class ManageCourseActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -65,10 +64,22 @@ public class ManageCourseActivity extends AppCompatActivity implements View.OnCl
         return categoryList;
     }
 
+    protected void onResume() {
+        super.onResume();
+
+        try {
+            List<CourseCategory> updatedCategories = getListCategory();
+            courseCateAdapter.setData(updatedCategories);
+            courseCateAdapter.notifyDataSetChanged();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.fabAdd) {
-            Intent intent = new Intent(this, AddCourseActivity.class);
+            Intent intent = new Intent(this, AddOrEditCourseActivity.class);
             startActivity(intent);
         }
     }

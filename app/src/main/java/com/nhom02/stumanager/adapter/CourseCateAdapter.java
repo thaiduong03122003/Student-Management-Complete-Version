@@ -48,7 +48,7 @@ public class CourseCateAdapter extends RecyclerView.Adapter<CourseCateAdapter.CC
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
         holder.rcvCourse.setLayoutManager(linearLayoutManager);
 
-        CourseAdapter courseAdapter = new CourseAdapter();
+        CourseAdapter courseAdapter = new CourseAdapter(context);
         courseAdapter.setData(cCategory.getCourseList());
         holder.rcvCourse.setAdapter(courseAdapter);
 

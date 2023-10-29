@@ -56,7 +56,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 ")";
 
         String khoaHocSql = "CREATE TABLE \"tb_khoahoc\" (\n" +
-                "\t\"ma_khoahoc\"\tvarchar(10),\n" +
+                "\t\"ma_khoahoc\"\tvarchar(20),\n" +
                 "\t\"ten_khoahoc\"\tvarchar(10) NOT NULL,\n" +
                 "\t\"nien_khoa\"\tTEXT NOT NULL,\n" +
                 "\t\"ma_nganh\"\tvarchar(10),\n" +

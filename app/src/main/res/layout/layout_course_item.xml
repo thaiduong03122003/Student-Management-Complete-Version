@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cvCourse"
     android:layout_width="100dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
-    android:layout_margin="10dp">
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="2dp">
     
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,16 +23,19 @@
             android:scaleType="centerCrop"
             android:src="@drawable/course"
             android:background="#FEFF91"/>
-        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#818686"/>
         <TextView
-            android:id="@+id/tvcourseName"
+            android:id="@+id/tvCourseName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="13sp"
             android:textColor="#686964"
             android:textStyle="bold"
-            android:text="K1"/>
+            android:text="K21"/>
         <TextView
             android:id="@+id/tvSchYear"
             android:layout_width="wrap_content"
@@ -37,6 +44,6 @@
             android:textSize="11sp"
             android:textColor="#8c8e87"
             android:layout_marginBottom="3dp"
-            android:text="2022-2026"/>
+            android:text="2021-2026"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

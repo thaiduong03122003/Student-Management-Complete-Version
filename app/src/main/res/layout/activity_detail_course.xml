@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DetailCourseActivity"
+    android:orientation="vertical"
+    android:background="#e5f7bd">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chi tiết khóa học"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:padding="10dp"
+        android:textColor="#525656"
+        android:background="#67f4f5"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:src="@drawable/img_course"
+        android:background="#F2BE3E"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_white_lightmode">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="Mã khóa học:"
+                android:textColor="#666261"
+                android:textSize="25sp"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/tvCourseId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mã khóa học"
+                android:textColor="#8a8684"
+                android:textSize="25sp"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên khóa học:"
+                android:textColor="#666261"
+                android:textSize="25sp"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/tvCourseName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên khóa học"
+                android:textColor="#f3632a"
+                android:textSize="25sp"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Niên khóa:"
+                android:layout_marginRight="37dp"
+                android:textColor="#666261"
+                android:textSize="25sp"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/tvSchYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Niên khóa"
+                android:textColor="#8a8684"
+                android:textSize="25sp"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mã ngành:"
+                android:layout_marginRight="37dp"
+                android:textColor="#666261"
+                android:textSize="25sp"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/tvMajorId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mã ngành"
+                android:textColor="#8a8684"
+                android:textSize="25sp"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sửa"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Xóa"
+            android:textColor="#db3e00"/>
+
+        <Button
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Đóng"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+</LinearLayout>
