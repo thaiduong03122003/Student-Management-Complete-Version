@@ -31,6 +31,7 @@ public class MajorAdapter extends RecyclerView.Adapter<MajorAdapter.MajorViewHol
         this.majorList = list;
         notifyDataSetChanged();
     }
+
     @NonNull
     @Override
     public MajorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

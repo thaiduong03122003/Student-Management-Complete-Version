@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="10dp">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+        
+        <ImageView
+            android:id="@+id/imCourse"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/course"
+            android:background="#FEFF91"/>
+        
+        <TextView
+            android:id="@+id/tvcourseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="13sp"
+            android:textColor="#686964"
+            android:textStyle="bold"
+            android:text="K1"/>
+        <TextView
+            android:id="@+id/tvSchYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="11sp"
+            android:textColor="#8c8e87"
+            android:layout_marginBottom="3dp"
+            android:text="2022-2026"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

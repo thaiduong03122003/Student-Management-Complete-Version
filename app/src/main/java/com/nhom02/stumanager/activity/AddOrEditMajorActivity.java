@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nhom02.stumanager.R;
@@ -18,12 +19,15 @@ import com.nhom02.stumanager.model.Major;
 import com.nhom02.stumanager.sqlite.EduProgDao;
 import com.nhom02.stumanager.sqlite.MajorDao;
 
+import org.w3c.dom.Text;
+
 import java.text.ParseException;
 import java.util.List;
 
 public class AddOrEditMajorActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText etMajorId, etMajorName, etMajorPhone, etMajorLink;
+    private TextView tvHeader;
     private Button btnSave;
     private Spinner spEduProg;
     private List<EducationProgram> eduList;
@@ -32,6 +36,7 @@ public class AddOrEditMajorActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_major);
 
+        tvHeader = findViewById(R.id.tvHeader);
         etMajorId = findViewById(R.id.etMajorId);
         etMajorName = findViewById(R.id.etMajorName);
         etMajorPhone = findViewById(R.id.etMajorPhone);
@@ -83,6 +88,8 @@ public class AddOrEditMajorActivity extends AppCompatActivity implements View.On
         etMajorPhone.setText(major.getMajorPhone());
         etMajorLink.setText(major.getMajorLink());
 
+        tvHeader.setText("Sửa chuyên ngành");
+        etMajorId.setEnabled(false);
         btnSave.setText("Cập nhật");
 
         String eduProgId = major.getEduProgId();

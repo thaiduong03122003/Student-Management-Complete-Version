@@ -54,13 +54,13 @@ public class MajorDao {
         Cursor cursor = db.rawQuery(sql, selectArgs);
 
         while (cursor.moveToNext()) {
-            Major std = new Major();
-            std.setMajorId(cursor.getString(cursor.getColumnIndex("ma_nganh")));
-            std.setMajorName(cursor.getString(cursor.getColumnIndex("ten_nganh")));
-            std.setMajorPhone(cursor.getString(cursor.getColumnIndex("sdt_lien_he")));
-            std.setMajorLink(cursor.getString(cursor.getColumnIndex("web_nganh")));
-            std.setEduProgId(cursor.getString(cursor.getColumnIndex("ma_daotao")));
-            list.add(std);
+            Major major = new Major();
+            major.setMajorId(cursor.getString(cursor.getColumnIndex("ma_nganh")));
+            major.setMajorName(cursor.getString(cursor.getColumnIndex("ten_nganh")));
+            major.setMajorPhone(cursor.getString(cursor.getColumnIndex("sdt_lien_he")));
+            major.setMajorLink(cursor.getString(cursor.getColumnIndex("web_nganh")));
+            major.setEduProgId(cursor.getString(cursor.getColumnIndex("ma_daotao")));
+            list.add(major);
         }
         return list;
     }
@@ -81,5 +81,21 @@ public class MajorDao {
         String sql = "SELECT * FROM tb_chuyennganh WHERE ma_daotao = ?";
 
         return get(sql, "" + eduProgId);
+    }
+
+    @SuppressLint("Range")
+    public List<String> getAllMajorName() {
+        List<String> majorNames = new ArrayList<>();
+        String sql = "SELECT ten_nganh " +
+                "FROM tb_chuyennganh";
+
+        Cursor cursor = db.rawQuery(sql, null);
+
+        while (cursor.moveToNext()) {
+            majorNames.add(cursor.getString(cursor.getColumnIndex("ten_nganh")));
+        }
+
+        cursor.close();
+        return majorNames;
     }
 }

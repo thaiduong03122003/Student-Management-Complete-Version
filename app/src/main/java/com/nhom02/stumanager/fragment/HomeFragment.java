@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.nhom02.stumanager.MainActivity;
 import com.nhom02.stumanager.R;
+import com.nhom02.stumanager.activity.ManageCourseActivity;
 import com.nhom02.stumanager.activity.ManageMajorActivity;
 
 
@@ -57,8 +58,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             startActivity(intentMajor);
         }
         else if (v.getId() == R.id.btnCourse) {
-            //Intent intentCourse = new Intent(getActivity(), ManageMajorActivity.class);
-            //startActivity(intentCourse);
+            Intent intentCourse = new Intent(getActivity(), ManageCourseActivity.class);
+            startActivity(intentCourse);
         }
         else if (v.getId() == R.id.btnClass) {
             //Intent intentClass = new Intent(getActivity(), ManageMajorActivity.class);

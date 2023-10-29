@@ -57,8 +57,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         String khoaHocSql = "CREATE TABLE \"tb_khoahoc\" (\n" +
                 "\t\"ma_khoahoc\"\tvarchar(10),\n" +
-                "\t\"ten_khoahoc\"\tvarchar(5) NOT NULL,\n" +
+                "\t\"ten_khoahoc\"\tvarchar(10) NOT NULL,\n" +
                 "\t\"nien_khoa\"\tTEXT NOT NULL,\n" +
+                "\t\"ma_nganh\"\tvarchar(10),\n" +
+                "\tFOREIGN KEY(\"ma_nganh\") REFERENCES \"tb_chuyennganh\"(\"ma_nganh\") ON DELETE SET NULL ON UPDATE CASCADE,\n" +
                 "\tPRIMARY KEY(\"ma_khoahoc\")\n" +
                 ")";
 
@@ -158,6 +160,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String lopSql = "DROP TABLE IF EXISTS tb_lop";
         String monChuyenSql = "DROP TABLE IF EXISTS tb_monhoc_chuyennganh";
 
+        // Drop theo thứ tự từ khóa ngoại -> khóa chính, tránh lỗi
         db.execSQL(lichSuSql);
         db.execSQL(chiTietDiemSql);
         db.execSQL(diemSql);

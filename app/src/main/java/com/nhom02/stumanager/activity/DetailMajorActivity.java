@@ -76,7 +76,7 @@ public class DetailMajorActivity extends AppCompatActivity implements View.OnCli
 
             AlertDialog.Builder builder = new AlertDialog.Builder(DetailMajorActivity.this);
             builder.setTitle("Cảnh báo!");
-            String message = "Khi bạn xóa, các lớp thuộc chuyên ngành này sẽ mất Mã chuyên ngành<br/><br/>" + "Bạn vẫn muốn xóa ngành " + major.getMajorName() + " chứ?";
+            String message = "Khi bạn xóa, các lớp / khóa thuộc chuyên ngành này sẽ mất Mã chuyên ngành<br/><br/>" + "Bạn vẫn muốn xóa ngành " + major.getMajorName() + " chứ?";
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
                 builder.setMessage(Html.fromHtml(message, Html.FROM_HTML_MODE_COMPACT));

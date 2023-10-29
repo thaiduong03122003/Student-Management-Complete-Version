@@ -13,13 +13,19 @@
         android:theme="@style/Theme.StuManager"
         tools:targetApi="31">
         <activity
-            android:name=".activity.DetailMajorActivity"
-            android:theme="@style/Theme.Design.NoActionBar"
+            android:name=".activity.AddCourseActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.AddOrEditMajorActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:name=".activity.ManageCourseActivity"
             android:exported="false" />
+        <activity
+            android:name=".activity.DetailMajorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".activity.AddOrEditMajorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
