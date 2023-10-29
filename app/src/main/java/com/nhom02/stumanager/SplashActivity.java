@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 
+import com.nhom02.stumanager.model.EducationProgram;
 import com.nhom02.stumanager.sqlite.DBHelper;
+import com.nhom02.stumanager.sqlite.EduProgDao;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -23,6 +25,18 @@ public class SplashActivity extends AppCompatActivity {
         SQLiteDatabase database = dbHelper.getReadableDatabase();
         database.close();
 
+        //Tạo dữ liệu sẵn cho tb_ct_daotao trong database
+        EducationProgram edu = new EducationProgram();
+        EduProgDao eduDao = new EduProgDao(this);
+        if (eduDao.getAll().isEmpty()) {
+            edu.setEduId("ĐT");
+            edu.setEduName("Đại trà");
+            eduDao.insert(edu);
+
+            edu.setEduId("CLC");
+            edu.setEduName("Chất lượng cao");
+            eduDao.insert(edu);
+        }
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

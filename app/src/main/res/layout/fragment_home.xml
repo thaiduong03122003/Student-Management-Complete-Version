@@ -52,6 +52,31 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:id="@+id/btnCourse"
+                android:layout_weight="5"
+                android:background="@drawable/background_card_lightmode"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:layout_width="100dp"
+                android:layout_height="131dp">
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_course_management"/>
+                <TextView
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:padding="2dp"
+                    android:textColor="@color/white"
+                    android:text="Quản lý khóa học"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/btnMajor"
                 android:layout_width="100dp"
                 android:layout_height="131dp"
@@ -77,30 +102,7 @@
                     android:padding="2dp"
                     android:textSize="15dp"/>
             </LinearLayout>
-            <LinearLayout
-                android:id="@+id/btnCourse"
-                android:layout_weight="5"
-                android:background="@drawable/background_card_lightmode"
-                android:gravity="center"
-                android:layout_margin="10dp"
-                android:orientation="vertical"
-                android:layout_width="100dp"
-                android:layout_height="131dp">
-                <ImageView
-                    android:layout_margin="5dp"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/img_course_management"/>
-                <TextView
-                    android:textSize="15dp"
-                    android:textStyle="bold"
-                    android:padding="2dp"
-                    android:textColor="@color/white"
-                    android:text="Quản lý khóa học"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout

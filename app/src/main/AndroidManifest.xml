@@ -17,7 +17,7 @@
             android:theme="@style/Theme.Design.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".activity.AddMajorActivity"
+            android:name=".activity.AddOrEditMajorActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="false" />
         <activity

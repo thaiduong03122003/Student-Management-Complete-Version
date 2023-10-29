@@ -70,6 +70,13 @@ public class MajorDao {
         return get(sql);
     }
 
+    public Major getById(String id) throws ParseException {
+        String sql = "SELECT * FROM tb_chuyennganh WHERE ma_nganh = ?";
+        List<Major> list = get(sql, id);
+
+        return list.get(0);
+    }
+
     public List<Major> getAllByEduProgId(String eduProgId) throws ParseException {
         String sql = "SELECT * FROM tb_chuyennganh WHERE ma_daotao = ?";
 

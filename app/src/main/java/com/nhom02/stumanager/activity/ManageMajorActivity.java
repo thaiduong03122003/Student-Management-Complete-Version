@@ -10,14 +10,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nhom02.stumanager.R;
 import com.nhom02.stumanager.adapter.MajorAdapter;
-import com.nhom02.stumanager.helper.DateTimeHelper;
-import com.nhom02.stumanager.model.EducationProgram;
 import com.nhom02.stumanager.model.Major;
 import com.nhom02.stumanager.sqlite.MajorDao;
 
@@ -30,9 +27,7 @@ public class ManageMajorActivity extends AppCompatActivity implements View.OnCli
     private RecyclerView rcvMajor;
     private MajorAdapter majorAdapter;
     private TextView tvNoResults;
-
     List<Major> majorList;
-    List<EducationProgram> educationProgramList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +55,6 @@ public class ManageMajorActivity extends AppCompatActivity implements View.OnCli
         }
 
         findViewById(R.id.fabAdd).setOnClickListener(this);
-
 
     }
 
@@ -111,9 +105,8 @@ public class ManageMajorActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        MajorDao dao = new MajorDao(this);
         if (v.getId() == R.id.fabAdd) {
-            Intent intentAddMajor = new Intent(this, AddMajorActivity.class);
+            Intent intentAddMajor = new Intent(this, AddOrEditMajorActivity.class);
             startActivity(intentAddMajor);
         }
     }

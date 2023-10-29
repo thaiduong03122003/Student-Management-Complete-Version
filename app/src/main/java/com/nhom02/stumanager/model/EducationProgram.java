@@ -6,6 +6,10 @@ public class EducationProgram {
     public EducationProgram() {
     }
 
+    public EducationProgram(String eduName) {
+        this.eduName = eduName;
+    }
+
     public EducationProgram(String eduId, String eduName) {
         this.eduId = eduId;
         this.eduName = eduName;

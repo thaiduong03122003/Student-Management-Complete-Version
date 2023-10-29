@@ -27,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 ");";
 
         String ctDaoTaoSql = "CREATE TABLE \"tb_ct_daotao\" (\n" +
-                "\t\"ma_daotao\"\tvarchar(5),\n" +
+                "\t\"ma_daotao\"\tTEXT,\n" +
                 "\t\"ten_ct_daotao\"\tTEXT NOT NULL,\n" +
                 "\tPRIMARY KEY(\"ma_daotao\")\n" +
                 ")";
